@@ -13,10 +13,10 @@ pes = Number(pes)
 let calc = pes / (alt * alt) // calculo IMC
 
 if(calc <= 18.4 && calc >= 17){
-    resultado.innerHTML = `seu IMC é de: ${calc}, você esta severamente abaixo do peso`
-}
-else if (calc < 16.9){
     resultado.innerHTML = `seu IMC é de: ${calc}, você esta abaixo do peso`
+}
+else if (calc <= 16.9){
+    resultado.innerHTML = `seu IMC é de: ${calc}, você esta severamente abaixo do peso`
 }
 else if(calc <= 24.9 && calc >= 18.5){
     resultado.innerHTML = `seu IMC é de: ${calc}, você esta no peso ideal`
