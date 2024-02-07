@@ -1,28 +1,38 @@
-let peso, altura, calc, abaixo, ideal, sobrepeso, obesidade1, obesidade2, obesidade3
+let altura = document.getElementById('altura')
+let peso = document.getElementById('peso')
+let resultado = document.getElementById('result')
 
-altura = document.getElementById("altura")
-peso = document.getElementById("peso")
-let resultado = document.getElementById("result")
-abaixo = 18.4
-ideal = 24.9
-sobrepeso = 29.9
-ob1 = 34.9
-ob2 = 40
-ob3 = 41
-calc = peso / (altura * altura)
 
-resultado.innerHTML = calc.toFixed(1)
+const btn = document.getElementById('btn')
+btn.addEventListener('click', () =>{
 
-if(calc <= abaixo){
-    resultado.innerHTML("abaixo do peso")
-}else if(calc <= ideal){
+let alt = altura.value
+alt = Number(alt)
+let pes = peso.value //transformando as entradas em números
+pes = Number(pes)
+let calc = pes / (alt * alt) // calculo IMC
 
-}else if(calc <= sobrepeso){
-
-}else if(calc <= ob1){
-
-}else if(calc <= ob2){
- 
-}else if(calc >= ob2){
-    
+if(calc <= 18.4 && calc >= 17){
+    resultado.innerHTML = `seu IMC é de: ${calc}, você esta severamente abaixo do peso`
 }
+else if (calc < 16.9){
+    resultado.innerHTML = `seu IMC é de: ${calc}, você esta abaixo do peso`
+}
+else if(calc <= 24.9 && calc >= 18.5){
+    resultado.innerHTML = `seu IMC é de: ${calc}, você esta no peso ideal`
+}
+else if(calc <= 29.9 && calc >= 25){
+    resultado.innerHTML = `seu IMC é de: ${calc}, você esta acima do peso`
+}
+else if(calc <= 34.9 && calc >= 30){
+    resultado.innerHTML = `seu IMC é de: ${calc}, você esta com obesidade tipo I`
+}
+else if(calc <= 40 && calc>= 35){
+    resultado.innerHTML = `seu IMC é de: ${calc}, você esta com obesidade tipo II`
+}
+else if(calc > 40){
+    resultado.innerHTML = `seu IMC é de: ${calc}, você esta com obesidade tipo III`
+}
+console.log(calc)
+}
+)
